@@ -14,55 +14,55 @@ class EmailApp:
         self.setup_ui()
 
     def setup_ui(self):
-        # بريد المرسل
+    
         tk.Label(self.root, text="ادخل ايميلك:", bg="#f0f0f0").grid(row=1, column=0, padx=10, pady=10)
         self.email_user = tk.Entry(self.root, width=50)
         self.email_user.grid(row=1, column=1, padx=10, pady=10, sticky="w")
         
-        # كلمة مرور المرسل
+        
         tk.Label(self.root, text="كلمة المرور:", bg="#f0f0f0").grid(row=2, column=0, padx=10, pady=10)
         self.email_password = tk.Entry(self.root, show="*", width=50)
         self.email_password.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
-        # زر إضافة عنوان بريد إلكتروني جديد
+        
         add_email_button = tk.Button(self.root, text="إضافة البريد الإلكتروني لمستلم اضافي", command=self.add_email_entry, bg="#4CAF50", fg="white", padx=20, pady=10)
         add_email_button.grid(row=5, column=0, columnspan=2, pady=10)
 
-        # عناوين البريد الإلكتروني للمستلمين
+        
         tk.Label(self.root, text="البريد الإلكتروني للمستلمين:", bg="#f0f0f0").grid(row=3, column=0, padx=10, pady=10)
         self.email_frame = tk.Frame(self.root, bg="#f0f0f0")
         self.email_frame.grid(row=3, column=1, columnspan=2, padx=9, pady=10, sticky="w" )
         self.email_entries = []
         self.add_email_entry()
 
-        # زر حذف البريد الإلكتروني
+        
         remove_email_button = tk.Button(self.root, text="إزالة البريد الإلكتروني الأخير", command=self.remove_email_entry, bg="#FF5733", fg="white", padx=20, pady=10)
         remove_email_button.grid(row=6, column=0, columnspan=2, pady=10)
 
-        # موضوع البريد
+       
         tk.Label(self.root, text="العنوان:", bg="#f0f0f0").grid(row=6, column=0, padx=10, pady=10)
         self.subject = tk.Entry(self.root, width=50)
         self.subject.grid(row=7, column=1, padx=10, pady=10, sticky="w")
 
-        # نص البريد
+        
         tk.Label(self.root, text="الرسالة:", bg="#f0f0f0").grid(row=7, column=0, padx=10, pady=10)
         self.body = tk.Text(self.root, height=10, width=50)
         self.body.grid(row=8, column=1, padx=10, pady=10, sticky="w")
 
         
 
-        # عنصر العرض لمسار الملف المحدد
+        
         self.resume_file = tk.Label(self.root, text="", bg="#f0f0f0")
         self.resume_file.grid(row=10, column=1, padx=10, pady=10, sticky="w")
 
-        # زر اختيار ملف السيرة الذاتية
+        
         attach_file_button = tk.Button(self.root, text="اضافة ملف", command=self.attach_file, bg="#4CAF50", fg="white", padx=20, pady=10)
         attach_file_button.grid(row=9, column=0, columnspan=2, padx=10, pady=10,)
 
-        # زر الإرسال
+        
         tk.Button(self.root, text="ارسال الايميل", command=self.send_email, bg="#4CAF50", fg="white", padx=20, pady=10).grid(row=11, column=0, columnspan=2, pady=10)
 
-        # إضافة نص "by Essam Alghamdi"
+        
         self.credits_label = tk.Label(self.root, text="by Essam Alghamdi", bg="#f0f0f0", fg="#777777")
         self.credits_label.grid(row=12, column=0, columnspan=2, pady=5)
         self.credits_label.bind("<Button-1>", lambda e: self.open_link("https://www.linkedin.com/in/essam-alghamdii/"))
@@ -82,7 +82,7 @@ class EmailApp:
         file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
         if file_path:
             self.resume_file.config(text=file_path)
-            file_name = file_path.split("/")[-1]  # استخراج اسم الملف من المسار
+            file_name = file_path.split("/")[-1]  
             messagebox.showinfo("تمت العملية", f"تم اختيار ملف: {file_name}")
         else:
             messagebox.showinfo("تنبيه", "لم يتم اختيار ملف.")
@@ -129,7 +129,7 @@ class EmailApp:
         import webbrowser
         webbrowser.open(link)
 
-# إنشاء واجهة
+
 root = tk.Tk()
 app = EmailApp(root)
 root.mainloop()
