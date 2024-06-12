@@ -90,7 +90,7 @@ class EmailApp:
 
     def send_email(self):
         smtp_server = 'smtp.gmail.com'
-        smtp_port = 58
+        smtp_port = 587
         email_user = self.email_user.get()
         email_password = self.email_password.get()
         subject = self.subject.get()
